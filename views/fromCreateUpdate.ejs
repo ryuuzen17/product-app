@@ -1,0 +1,37 @@
+<% let data ={} %> <% if (produk) { %> <%data = {...produk[0]} %> <% }else{ %> <%data.produk_id = ''%> <%data.nama_produk = ''%> <%data.keterangan = ''%> <% data.harga='' %> <% data.jumlah='' %><% } %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mt-3">
+      <h2>form produk</h2>
+      <% if(data.produk_id){%>
+      <form action="/update/<%= data.produk_id%>" method="POST">
+        <% }else{ %>
+        <form action="/createUpdate" method="POST">
+          <% } %>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">nama produk</label>
+            <input type="text" name="nama_produk" value="<%= data.nama_produk %> " class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">keterangan</label>
+            <input type="text" name="keterangan" value="<%= data.keterangan %>" class="form-control" id="exampleInputPassword1" required />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">harga</label>
+            <input type="text" name="harga" value="<%= data.harga %>" class="form-control" id="exampleInputPassword1" required />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">jumlah</label>
+            <input type="text" name="jumlah" value="<%= data.jumlah %>" class="form-control" id="exampleInputPassword1" required />
+          </div>
+          <% if(data.produk_id){ %>
+          <button type="submit" class="btn btn-primary">update</button>
+          <% }else{ %>
+          <button type="submit" class="btn btn-primary">submit</button>
+          <% } %>
+        </form>
+      </form>
+    </div>
+  </div>
+</div>

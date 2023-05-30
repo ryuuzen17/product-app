@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Ket</th>
+            <th scope="col">Harga</th>
+            <th scope="col">Jumlah</th>
+            <th scope="col">Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% produk.forEach((data,i) => { i++ %>
+          <tr>
+            <th scope="row"><%= i %></th>
+            <td><%= data.nama_produk %></td>
+            <td><%= data.keterangan %></td>
+            <td><%= data.harga %></td>
+            <td><%= data.jumlah %></td>
+            <td>
+              <a href="/createUpdate/<%= data.produk_id %> " class="btn btn-success badge rounded-pill"><i class="bi bi-info-circle"></i> edit</a>
+              <a href="/delete/<%= data.produk_id %> " class="btn btn-danger badge rounded-pill"><i class="bi bi-trash"></i> hapus</a>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
